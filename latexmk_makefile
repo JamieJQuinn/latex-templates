@@ -1,0 +1,14 @@
+COMPILER=latexmk
+BUILD_DIR=out
+FLAGS=-outdir=$(BUILD_DIR) -xelatex
+MAIN_FILE=main.tex
+
+all: pdf
+
+pdf: $(MAIN_FILE)
+	mkdir -p $(BUILD_DIR)
+	$(COMPILER) $(FLAGS) $(MAIN_FILE)
+
+.PHONY: clean
+clean:
+	rm -rf out
